@@ -1,0 +1,60 @@
+!!! 5
+%html
+  %head
+    %title
+      CA Example
+    %link{:rel => 'stylesheet', :href => 'css/bootstrap.min.css'}
+    %link{:rel => 'stylesheet', :href => 'css/style.css'}
+  %body
+    .row
+      .span4.offset2
+        %h3
+          Generate certificate
+    .row
+      %form
+        %fieldset
+          .row
+            .span4.offset2
+              %label{:for => 'type'}
+                Type:
+              %select{:name => 'type', :id => 'type'}
+                %option
+                  Mail
+                %option
+                  Websites
+                %option
+                  Code signing
+              %label{:for => 'keygen'}
+                Encryption:
+              %keygen#keygen{:name => 'keygen'}
+              %label{:for => 'dns'}
+                DNS:
+              %input#dns{:type => 'text', :name => 'dns'}
+              %label{:for => 'email'}
+                Email:
+              %input#email{:type => 'text', :name => 'email'}
+            .span4
+              %label{:for => 'common_name'}
+                Common name:
+              %input#common_name{:type => 'text', :name => 'common_name'}
+              %label{:for => 'organization'}
+                Organization:
+              %input#organization{:type => 'text', :name => 'organization'}
+              %label{:for => 'locality'}
+                Locality:
+              %input#locality{:type => 'text', :name => 'locality'}
+              %label{:for => 'country'}
+                Country:
+              %input#country{:type => 'text', :name => 'country'}
+
+          .row
+            .span4.offset2
+              %button.btn{:type => 'submit'}
+                Submit
+
+
+
+
+
+
+

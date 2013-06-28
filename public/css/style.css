@@ -1,0 +1,35 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */
+    keygen {
+        margin: 0;
+        font-size: 100%;
+        vertical-align: middle;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    }
+
+    /* Found this at http://www.css-101.org/articles/base-styles-sheet-for-webkit-based-browsers/styles-sheets-optimization.php#table */
+    keygen::-webkit-keygen-select {
+        cursor: pointer;
+        margin: 0;
+        box-sizing: content-box;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        display: inline-block;
+        height: 20px;
+        padding: 4px 6px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #555555;
+        vertical-align: middle;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        width: 206px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+    }
+}
