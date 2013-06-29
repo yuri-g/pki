@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title
+      CA Example
+    %link{:rel => 'stylesheet', :href => 'css/bootstrap.min.css'}
+    %link{:rel => 'stylesheet', :href => 'css/style.css'}
+  %body
+    .row
+      .span4.offset2
+        %h3
+          Your certificate:
+    .row
+      .span8.offset2
+        .well
+          = certificate
+    .row
+      .span4.offset2
+        You can check it
+        %a{:href => "http://certlogik.com/decoder/"}
+          here.
+
+
+
+
+
