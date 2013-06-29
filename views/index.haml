@@ -11,7 +11,7 @@
         %h3
           Generate certificate
     .row
-      %form
+      %form{:action => '/generate', :method => 'post'}
         %fieldset
           .row
             .span4.offset2
@@ -26,7 +26,7 @@
                   Code signing
               %label{:for => 'keygen'}
                 Encryption:
-              %keygen#keygen{:name => 'keygen'}
+              %keygen#keygen{:name => 'keygen', :challenge => 'challenge'}
               %label{:for => 'dns'}
                 DNS:
               %input#dns{:type => 'text', :name => 'dns'}
