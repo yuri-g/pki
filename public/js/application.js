@@ -20,5 +20,8 @@ $(function() {
                 this.submit()
             }
         }
+        else  {
+            this.submit()
+        }
     })
 });
