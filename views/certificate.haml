@@ -3,23 +3,22 @@
   %head
     %title
       CA Example
-    %link{:rel => 'stylesheet', :href => 'css/bootstrap.min.css'}
-    %link{:rel => 'stylesheet', :href => 'css/style.css'}
+    %link{:rel => 'stylesheet', :href => '/css/bootstrap.min.css'}
+    %link{:rel => 'stylesheet', :href => '/css/style.css'}
   %body
     .row
       .span4.offset2
         %h3
           Your certificate:
+        %div{:style => 'margin-bottom: 5px'}
+          %a.btn.btn-primary{:href => "/certificates/#{uuid}/download"}
+            Download
     .row
       .span8.offset2
         .well
           = certificate
-    .row
       .span4.offset2
-        You can check it
-        %a{:href => "http://certlogik.com/decoder/"}
-          here.
-
+        %h4
 
 
 

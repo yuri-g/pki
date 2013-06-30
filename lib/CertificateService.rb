@@ -40,10 +40,13 @@ class CertificateService
     #signing the certificate
     csr_cert.sign @root_key, OpenSSL::Digest::SHA1.new
 
+    @uuid = SecureRandom.uuid
+    puts @uuid.length
+
     #writing it to file
-    open 'csr_cert.pem', 'w' do |io|
-      io.write csr_cert.to_pem
-    end
+    #open "certificates/csr_cert.pem", 'w' do |io|
+    #  io.write csr_cert.to_pem
+    #end
     csr_cert
 
   end

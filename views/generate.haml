@@ -1,0 +1,34 @@
+!!! 5
+%html
+  %head
+    %title
+      CA Example
+    %link{:rel => 'stylesheet', :href => 'css/bootstrap.min.css'}
+    %link{:rel => 'stylesheet', :href => 'css/style.css'}
+  %body
+    .row
+      .span4.offset2
+        %h3
+          Your certificate:
+        %div{:style => 'margin-bottom: 5px'}
+          %a.btn.btn-primary{:href => "/certificates/#{uuid}/download"}
+            Download
+    .row
+      .span8.offset2
+        .well
+          = certificate
+      .span4.offset2
+        %h4
+          You can check it
+          %a{:href => "http://certlogik.com/decoder/"}
+            here.
+      .span4.offset2
+        %h4
+          And you can always access your certificate with this url:
+          %a{:href => "/certificates/#{uuid}"}
+            = uuid
+
+
+
+
+
