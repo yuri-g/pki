@@ -5,13 +5,15 @@
       CA Example
     %link{:rel => 'stylesheet', :href => 'css/bootstrap.min.css'}
     %link{:rel => 'stylesheet', :href => 'css/style.css'}
+    %script{:type => 'text/javascript', :src => 'js/jquery-2.0.2.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/application.js'}
   %body
     .row
       .span4.offset2
         %h3
           Generate certificate
     .row
-      %form{:action => '/generate', :method => 'post'}
+      %form#generate{:action => '/generate', :method => 'post'}
         %fieldset
           .row
             .span4.offset2
@@ -46,6 +48,8 @@
               %label{:for => 'country'}
                 Country:
               %input#country{:type => 'text', :name => 'country'}
+            .span4
+              .alert.alert-error#error
 
           .row
             .span4.offset2
