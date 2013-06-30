@@ -7,9 +7,9 @@ class CertificateService
 
 
   #generates and signs the certificate
-  def generate params, csr
+  def generate params, csr, serial
     csr_cert = OpenSSL::X509::Certificate.new
-    csr_cert.serial = 0
+    csr_cert.serial = serial
     csr_cert.version = 2
 
     csr_cert.not_before = Time.now
@@ -41,7 +41,6 @@ class CertificateService
     csr_cert.sign @root_key, OpenSSL::Digest::SHA1.new
 
     @uuid = SecureRandom.uuid
-    puts @uuid.length
 
     #writing it to file
     #open "certificates/csr_cert.pem", 'w' do |io|
@@ -55,20 +54,26 @@ class CertificateService
         [ @ef.create_extension('basicConstraints', 'CA:FALSE'),
           @ef.create_extension('extendedKeyUsage', 'critical,emailProtection'),
           @ef.create_extension('subjectAltName', "email:#{email}"),
-          @ef.create_extension('subjectKeyIdentifier', 'hash') ]
+          @ef.create_extension('subjectKeyIdentifier', 'hash'),
+          @ef.create_extension('crlDistributionPoints', 'URI:http://yuri.im/root.crl'),
+          @ef.create_extension('authorityInfoAccess', 'caIssuers;URI:http://yuri.im/root.crt')]
   end
 
   def dns_extensions dns
     [ @ef.create_extension('basicConstraints', 'critical, CA:FALSE'),
       @ef.create_extension('extendedKeyUsage', 'critical,serverAuth,clientAuth'),
       @ef.create_extension('subjectAltName', "DNS:#{dns}"),
-      @ef.create_extension('subjectKeyIdentifier', 'hash') ]
+      @ef.create_extension('subjectKeyIdentifier', 'hash'),
+      @ef.create_extension('crlDistributionPoints', 'URI:http://yuri.im/root.crl'),
+      @ef.create_extension('authorityInfoAccess', 'caIssuers;URI:http://yuri.im/root.crt')]
   end
 
   def sign_extensions
     [ @ef.create_extension('basicConstraints', 'CA:FALSE'),
       @ef.create_extension('extendedKeyUsage', 'critical,codeSigning'),
-      @ef.create_extension('subjectKeyIdentifier', 'hash') ]
+      @ef.create_extension('subjectKeyIdentifier', 'hash'),
+      @ef.create_extension('crlDistributionPoints', 'URI:http://yuri.im/root.crl'),
+      @ef.create_extension('authorityInfoAccess', 'caIssuers;URI:http://yuri.im/root.crt')]
 
   end
 
